@@ -9,7 +9,13 @@
 <body>
   <nav>Test</nav>
   <main>
-  <h2>Test</h2>
+  <script id='songsTemplate' type='text/template'>
+    <div id='songs'>
+      <div class='genre'><%= genre %></div>
+      <div class='description'><%= description %></div>
+      <div class='permalink-url'><%= permalink_url %></div>
+    </div>
+  </script>
   </main>
   <footer>
   <p>Hi.</p>
