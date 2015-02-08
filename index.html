@@ -7,10 +7,19 @@
   <link rel='stylesheet' href='main.css'>
 </head>
 <body>
-  <nav class='center clearfix white bg-dark-gray'>
-    <h1 class='cleafix m0 py2'>WHISPERSPEAK</h1>
-  </nav>
+  
   <main>
+
+    <script id='profileTemplate' type='text/template'>
+      <nav class='center clearfix white bg-dark-gray'>
+        <a href='<%= permalink_url %>'>
+          <h1 class='cleafix m0 py2'><%= username %></h1>
+        </a>
+      </nav>
+      <h3 class='h3 center dark-gray'><%= description %></h3>
+      <img src='<%= avatar_url %>' class='full-width'/>
+    </script>
+    <div id='profile'></div>
 
     <script id='songsTemplate' type='text/template'>
       <div class='bg-light-gray mb1 rounded'>
