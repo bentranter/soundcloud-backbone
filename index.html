@@ -10,12 +10,12 @@
   <nav>Test</nav>
   <main>
   <script id='songsTemplate' type='text/template'>
-    <div id='songs'>
-      <div class='genre'><%= genre %></div>
-      <div class='description'><%= description %></div>
-      <div class='permalink-url'><%= permalink_url %></div>
-    </div>
+      <div class='genre'><%= title %></div>
+      <audio src='<%= stream_url %>?client_id=8ec20fb5cf443b6a8370954c522149c3' controls='controlsß'>Browser suppport is lacking, honey</audio>
+      <a href='<%= permalink_url %>'>Listen</a>
+      <br/>
   </script>
+  <div id='songs'></div>
   </main>
   <footer>
   <p>Hi.</p>
@@ -30,4 +30,4 @@
 <!--
   
   Client ID: 8ec20fb5cf443b6a8370954c522149c3
-  Client Secret: 8231909b8d3430b1e4be09f07ad45214
+  Client Secret: 8231909b8d3430b1e4be09f07ad45214 -->

@@ -14,7 +14,9 @@ var SongsView = Backbone.View.extend({
 	el: '#songs',
 	template: _.template($('#songsTemplate').html()),
 	initialize: function() {
+		this.collection.fetch({reset: true});
 		this.listenTo(this.collection, 'add', this.renderItem);
+		this.listenTo(this.collection, 'reset', this.render);
 	},
 	render: function() {
 		this.collection.each(function(model) {
@@ -32,5 +34,10 @@ var songsCollection = new SongsCollection();
 var songsView = new SongsView({
 	collection: songsCollection
 });
+
 songsView.render();
-songsCollection.fetch();
+
+// var SongsCollection = Backbone.Collection.extend({
+// 	model: Songs,
+// 	url: 'https://api.soundcloud.com/users/33748259/tracks.json?client_id=8ec20fb5cf443b6a8370954c522149c3' // Grab Keenan's songs, make no attempt to hide my client ID
+// });
