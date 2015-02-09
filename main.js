@@ -4,16 +4,18 @@
 var Songs = Backbone.Model.extend();
 var Profile = Backbone.Model.extend();
 
+var userId = '3785024';
+
 // Make a collection to hold the data in
 var SongsCollection = Backbone.Collection.extend({
 	model: Songs,
-	url: 'https://api.soundcloud.com/users/33748259/tracks.json?client_id=8ec20fb5cf443b6a8370954c522149c3' // Grab Keenan's songs, make no attempt to hide my client ID
+	url: 'https://api.soundcloud.com/users/' + userId + '/tracks.json?client_id=8ec20fb5cf443b6a8370954c522149c3' // Grab Keenan's songs, make no attempt to hide my client ID
 });
 
 // The user's profile info
 var ProfileInfo = Backbone.Collection.extend({
 	model: Profile,
-	url: 'https://api.soundcloud.com/users/33748259?client_id=8ec20fb5cf443b6a8370954c522149c3'
+	url: 'https://api.soundcloud.com/users/' + userId + '?client_id=8ec20fb5cf443b6a8370954c522149c3'
 });
 
 var ProfileView = Backbone.View.extend({
@@ -97,14 +99,3 @@ var songsCollection = new SongsCollection();
 var songsView = new SongsView({
 	collection: songsCollection
 });
-
-/**
- * Basically what we need to do is create a Backbone model
- * for the audio player, and `player.get()` the first track
- * onLoad, and then `player.set()` whichever track is
- * clicked after that. We'll also need to define a route for
- * each song, so you can send someone a specific song. So
- * you actually might need to set the route onLoad and onClick,
- * and then get the params from the URL to set the song
- * whenever theres a change.
- */
