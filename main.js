@@ -54,6 +54,21 @@ var SongsView = Backbone.View.extend({
 	renderItem: function(song) {
 		var songsTemplate = this.template(song.toJSON());
 		this.$el.append(songsTemplate);
+	},
+	events: {
+		'click .songs': 'clicked'
+	},
+	clicked: function(e) {
+		e.preventDefault();
+
+		// Get audio source from element
+		var id = $(e.currentTarget).data('id');
+		var song = this.collection.get(id);
+		var audioSource = song.get('stream_url');
+
+		// Set audio source of shitty player up top on click
+		var audio = document.getElementById('music')
+		audio.src = audioSource + '?client_id=8ec20fb5cf443b6a8370954c522149c3';
 	}
 });
 
@@ -62,8 +77,13 @@ var songsView = new SongsView({
 	collection: songsCollection
 });
 
-// Handle audio element
-setTimeout(function() {
-	var audio = document.getElementsByTagName('audio')[1];
-	console.log(audio.src);
-}, 3000);
+/**
+ * Basically what we need to do is create a Backbone model
+ * for the audio player, and `player.get()` the first track
+ * onLoad, and then `player.set()` whichever track is
+ * clicked after that. We'll also need to define a route for
+ * each song, so you can send someone a specific song. So
+ * you actually might need to set the route onLoad and onClick,
+ * and then get the params from the URL to set the song
+ * whenever theres a change.
+ */
