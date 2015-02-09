@@ -37,13 +37,17 @@ var profileView = new ProfileView({
 });
 
 var songIsPlaying = $('.song');
+var albumArtFallback = '';
 
 // Setup a view
 var SongsView = Backbone.View.extend({
 	el: '#songs',
 	template: _.template($('#songsTemplate').html()),
 	initialize: function() {
-		this.collection.fetch({reset: true});
+		// Wow lol
+		this.collection.fetch({reset: true}).complete(function (){
+			albumArtFallback = document.getElementById('track-album-art').src;
+		});
 		this.listenTo(this.collection, 'add', this.renderItem);
 		this.listenTo(this.collection, 'reset', this.render);
 	},
@@ -68,10 +72,19 @@ var SongsView = Backbone.View.extend({
 		var id = $(e.currentTarget).data('id');
 		var song = this.collection.get(id);
 		var audioSource = song.get('stream_url');
+		var trackAlbumArtSource = song.get('artwork_url');
 
 		// Set audio source of shitty player up top on click
 		var audio = document.getElementById('music');
 		audio.src = audioSource + '?client_id=8ec20fb5cf443b6a8370954c522149c3';
+
+		// Change the album background thing
+		var trackAlbumArt = document.getElementById('track-album-art');
+		if (trackAlbumArtSource) {
+			trackAlbumArt.src = trackAlbumArtSource;
+		} else {
+			trackAlbumArt.src = albumArtFallback;
+		}
 
 		// Add some CSS to change the background of that div
 		// You can do this with a closure but a global works I guess
