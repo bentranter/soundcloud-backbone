@@ -36,6 +36,8 @@ var profileView = new ProfileView({
 	collection: profileInfo
 });
 
+var songIsPlaying = $('.song');
+
 // Setup a view
 var SongsView = Backbone.View.extend({
 	el: '#songs',
@@ -60,6 +62,7 @@ var SongsView = Backbone.View.extend({
 	},
 	clicked: function(e) {
 		e.preventDefault();
+		songIsPlaying.removeClass('white bg-dark-gray');
 
 		// Get audio source from element
 		var id = $(e.currentTarget).data('id');
@@ -67,8 +70,13 @@ var SongsView = Backbone.View.extend({
 		var audioSource = song.get('stream_url');
 
 		// Set audio source of shitty player up top on click
-		var audio = document.getElementById('music')
+		var audio = document.getElementById('music');
 		audio.src = audioSource + '?client_id=8ec20fb5cf443b6a8370954c522149c3';
+
+		// Add some CSS to change the background of that div
+		// You can do this with a closure but a global works I guess
+		songIsPlaying = $(e.currentTarget);
+		songIsPlaying.addClass('white bg-dark-gray');
 	}
 });
 
