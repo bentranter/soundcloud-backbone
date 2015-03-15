@@ -1,0 +1,29 @@
+{
+  "name": "soundcloud-backbone",
+  "version": "1.0.0",
+  "description": "App that pulls your songs from SoundCloud and puts them into an HTML5 player.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bentranter/soundcloud-backbone"
+  },
+  "keywords": [
+    "SoundCloud",
+    "Backbone",
+    "HTML5",
+    "Audio"
+  ],
+  "author": "Ben Tranter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bentranter/soundcloud-backbone/issues"
+  },
+  "homepage": "https://github.com/bentranter/soundcloud-backbone",
+  "dependencies": {
+    "live-server": "^0.7.0"
+  }
+}
