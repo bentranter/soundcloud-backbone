@@ -7,12 +7,18 @@ var app = app || {};
   var Router = Backbone.Router.extend({
     routes: {
       '': 'home',
-      '!/tracks/:title': 'playTrack',
+      '!/tracks/:id': 'playTrack',
       '#notFound': 'notFound'
     }
   });
 
   app.router = new Router();
+
+  app.router.on('route:home', function(id) {
+    // Play the first song by going to that route
+    var model = app.songs.first();
+    app.router.navigate('!/tracks/' + model.get('id'), {trigger: true});
+  });
 
   app.router.on('route:playTrack', function(id) {
       var model = app.songs.get(id);
@@ -24,6 +30,6 @@ var app = app || {};
   });
 
   app.router.on('route:notFound', function() {
-    app.router.navigate('home');
+    app.router.navigate('/', {trigger: true});
   });
 })();

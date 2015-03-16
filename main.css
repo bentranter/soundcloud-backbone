@@ -7,6 +7,14 @@
 
 */
 
+* {
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: none;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased;
+}
+
 body,
 button {
   margin: 0;
@@ -151,7 +159,7 @@ td {
 /* Basscss Base Typography */
 
 body {
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'Roboto', Roboto, 'Helvetica Neue', Helvetica, sans-serif;
   line-height: 1.5;
   font-size: 100%;
 }
@@ -162,7 +170,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'Roboto', Roboto, 'Helvetica Neue', Helvetica, sans-serif;
   font-weight: bold;
   line-height: 1.25;
   margin-top: 1em;
@@ -197,7 +205,7 @@ pre {
 }
 
 hr {
-  margin-top: 2rem;
+  margin-top: 0;
   margin-bottom: 2rem;
 }
 
@@ -217,12 +225,14 @@ blockquote p {
 
 h1,
 .h1 {
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: normal;
 }
 
 h2,
 .h2 {
   font-size: 1.5rem;
+  font-weight: 300;
 }
 
 h3,
@@ -243,6 +253,11 @@ h5,
 h6,
 .h6 {
   font-size: .75rem;
+}
+
+small,
+.small {
+  font-size: .875rem;;
 }
 
 .list-reset {
@@ -325,6 +340,11 @@ h6,
 .caps {
   text-transform: uppercase;
   letter-spacing: .2em;
+}
+
+.small-caps {
+  text-transform: uppercase;
+  font-size: 0.75rem;
 }
 
 .left-align {
@@ -665,7 +685,7 @@ h6,
 /* Basscss Grid */
 
 .container {
-  max-width: 64em;
+  max-width: 52em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1093,6 +1113,7 @@ hr {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: rgba(0, 0, 0, .125);
+  max-width: 12rem;
 }
 
 .button {
@@ -1579,7 +1600,10 @@ input[type=range] {
   color: #aaa;
 }
 
-.silver,
+.silver {
+  color: #f4f4f6;
+}
+
 .light-gray {
   color: #ddd;
 }
@@ -1642,7 +1666,10 @@ input[type=range] {
 
 /* Background Color */
 
-.bg-black,
+.bg-black {
+  background-color: #000;
+}
+
 .bg-dark-gray {
   background-color: #222;
 }
@@ -1652,7 +1679,10 @@ input[type=range] {
   background-color: #aaa;
 }
 
-.bg-silver,
+.bg-silver {
+  background-color: #f4f4f6;
+}
+
 .bg-light-gray {
   background-color: #ddd;
 }

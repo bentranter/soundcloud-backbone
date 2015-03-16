@@ -12,10 +12,6 @@ var app = app || {};
 
     initialize: function() {
 
-    },
-
-    isPlaying: function() {
-
     }
   });
 })();
