@@ -7,7 +7,8 @@ var app = app || {};
   var Router = Backbone.Router.extend({
     routes: {
       '': 'home',
-      'tracks/:id': 'playTrack'
+      '!/tracks/:title': 'playTrack',
+      '#notFound': 'notFound'
     }
   });
 
@@ -20,5 +21,9 @@ var app = app || {};
         model: model,
         collection: app.songs
       });
+  });
+
+  app.router.on('route:notFound', function() {
+    app.router.navigate('home');
   });
 })();
