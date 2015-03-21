@@ -15,3 +15,7 @@ $ npm start
 I used live-server, so this will just open your browser for you and probably start playing music, so you might want to turn your speakers down 😁.
 
 
+####TODO:
+
+- test against 4G connection
+- test against embedded WebKit wth and without JIT
