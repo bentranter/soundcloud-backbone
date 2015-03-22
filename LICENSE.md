@@ -1,1 +1,1 @@
-MIT please
+MIT &copy; 2015

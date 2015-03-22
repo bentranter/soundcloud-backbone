@@ -29,6 +29,7 @@ var app = app || {};
       });
   });
 
+  // TODO: This doesn't fire properly
   app.router.on('route:notFound', function() {
     app.router.navigate('/', {trigger: true});
   });
