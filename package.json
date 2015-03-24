@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "test"
+    "test": "echo 'Todo: Write tests' "
   },
   "repository": {
     "type": "git",
